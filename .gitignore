@@ -2,3 +2,5 @@
 *.pem
 .idea
 requirements.txt
+build
+*.egg-info
