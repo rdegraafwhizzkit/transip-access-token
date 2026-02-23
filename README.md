@@ -23,6 +23,19 @@ pip install flake8
 ## Usage
 Save private key in a file called pk.pem, then run:
 ```
-TRANSIP_USERNAME=todo TRANSIP_PRIVATE_KEY_FILE=pk.pem \
+TRANSIP_USERNAME=change-me \
+  TRANSIP_PRIVATE_KEY_FILE=pk.pem \
   python main.py
+```
+which should result in
+```
+{
+  "ping": "pong",
+  "_links": [
+    {
+      "rel": "self",
+      "link": "https://api.transip.nl/v6/api-test?page=1&pageSize=0"
+    }
+  ]
+}
 ```
