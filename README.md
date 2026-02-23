@@ -2,6 +2,7 @@
 
 ## TODO
 * A lot to make it more package style
+* Add documentation in code
 
 ## Setup
 ```
@@ -15,25 +16,13 @@ pip install pip-tools
 pip-compile requirements.in 
 pip install -r requirements.txt 
 ```
-
+For development, you may add
+```
+pip install flake8
+```
 ## Usage
 Save private key in a file called pk.pem, then run:
 ```
-import requests
-from transip_access_token import TransIPAPI, TransIPAccessToken
-
-if '__main__' == __name__:
-    token = TransIPAccessToken(
-        '<your username>',
-        private_key=''.join(open('pk.pem').readlines()),
-        global_key=True
-    ).create_token()
-
-    print(requests.get(
-        url=f'https://{TransIPAPI.ENDPOINT}/{TransIPAPI.VERSION}/invoices',
-        headers={
-            'Content-Type': 'application/json',
-            'Authorization': f'Bearer {token}'
-        }
-    ).text)
+TRANSIP_USERNAME=todo TRANSIP_PRIVATE_KEY_FILE=pk.pem \
+  python main.py
 ```
