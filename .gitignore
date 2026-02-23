@@ -1,0 +1,5 @@
+.venv
+*.pem
+.idea
+requirements.txt
+main.py
