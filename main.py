@@ -1,7 +1,10 @@
 import os
 import json
 import requests
+import logging
 from transip_access_token_python import TransIPAPI, TransIPAccessToken
+
+logging.basicConfig(level=logging.INFO)
 
 if '__main__' == __name__:
     token = TransIPAccessToken(
@@ -10,10 +13,12 @@ if '__main__' == __name__:
         global_key=True
     ).create_token()
 
+    headers = {
+        'Content-Type': 'application/json',
+        'Authorization': f'Bearer {token}'
+    }
+
     print(json.dumps(requests.get(
         url=f'https://{TransIPAPI.ENDPOINT}/{TransIPAPI.VERSION}/api-test',
-        headers={
-            'Content-Type': 'application/json',
-            'Authorization': f'Bearer {token}'
-        }
+        headers=headers
     ).json(), indent=2))

@@ -1,5 +1,8 @@
 # Transip Access Token Python
 
+## Links
+* https://api.transip.nl/rest/docs.html#introduction
+
 ## TODO
 * A lot to make it more package style
 * Add documentation in code
@@ -38,4 +41,9 @@ which should result in
     }
   ]
 }
+```
+# Misc
+```
+python setup.py build
+python -m build
 ```
